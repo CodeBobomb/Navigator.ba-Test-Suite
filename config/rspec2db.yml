@@ -1,0 +1,10 @@
+options:
+  suite: "full regression" 
+  build: "0.0.1"
+dbconnection:
+  adapter: postgresql
+  database:  rspec
+  username: postgres
+  password: password
+  host: localhost
+  port: 5432
