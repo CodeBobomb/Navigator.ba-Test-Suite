@@ -21,6 +21,12 @@ require 'appium_lib'
 			search
 			return valid
 		end
+		def open_main_item(item_name)
+			main_item=find(item_name)
+			main_item.click
+			sleep(2)
+		end
+
 
 		def nav_bar(input)
 			button=nil

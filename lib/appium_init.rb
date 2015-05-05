@@ -5,7 +5,9 @@ require 'singleton'
 require_relative './viewscreens/homescreen.rb'
 require_relative './viewscreens/placescreen.rb'
 require_relative './viewscreens/createscreen.rb'
-
+require_relative './viewscreens/listscreen.rb'
+require_relative './viewscreens/eventslistscreen.rb'
+require_relative './viewscreens/eventscreen.rb'
 class AppiumInit
 	include Singleton
 
@@ -20,6 +22,9 @@ class AppiumInit
 		Appium.promote_appium_methods HomeScreen
 		Appium.promote_appium_methods PlaceScreen
 		Appium.promote_appium_methods CreateScreen
+		Appium.promote_appium_methods ListScreen
+		Appium.promote_appium_methods EventsListScreen
+		Appium.promote_appium_methods EventScreen
 	end
 
 	def initialize
