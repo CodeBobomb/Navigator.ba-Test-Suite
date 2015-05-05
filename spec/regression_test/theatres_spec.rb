@@ -16,6 +16,7 @@ describe "Navigator.ba regression test: Theaters" do
 
 	context "Select 'Ljetno kino HT Eronet' item in the list" do
 		it 'theater selected, place viewscreen appeared' do
+			# BAKIR: Why do you need do below?
 			@listscreen.open_item('Ljetno kino HT Eronet') do
 			expect(@placescreen.required_details_exist?).to be_truthy
 		end

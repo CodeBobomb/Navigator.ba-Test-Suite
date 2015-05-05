@@ -2,6 +2,7 @@ require 'appium_lib'
 
 class EventsListScreen
 
+	# BAKIR: Use attr_accessors like in eventscreen class
 	def initialize
 		@time=nil
 		@day=nil

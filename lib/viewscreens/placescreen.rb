@@ -21,6 +21,7 @@ require 'appium_lib'
 			bubble_address=id('com.atlantbh.navigator.debug:id/bubble_description')
 			#bubble_phone=id('com.atlantbh.navigator.debug:id/bubble_phone')
 			is_equal = bubble_title.text.downcase == name.downcase && address.downcase.include?(bubble_address.text.downcase) #&& bubble_phone.text == phone
+			# BAKIR: You don't need to use back command here, you have previous_screen method below, call that method
 			back
 			return is_equal
 		end
@@ -43,6 +44,7 @@ require 'appium_lib'
 			arrow_left.click
 			sleep(1)
 
+			# Bakir: You have previous_screen method
 			back
 			true
 		end

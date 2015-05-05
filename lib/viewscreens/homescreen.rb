@@ -12,6 +12,7 @@ require 'appium_lib'
 
 		def search
 			venues=find('GLAVNE LOKACIJE') if exists { find('GLAVNE LOKACIJE') }
+			# BAKIR: No need for if clause here, if find returns nil, then handle that case below
 			loc=venues.location #suggested results is on the same location as "Glavne lokacije" item
 			Appium::TouchAction.new.tap(x:loc[:x],y:loc[:y]).perform
 		end
@@ -20,6 +21,9 @@ require 'appium_lib'
 			valid=enter_place(place)
 			search
 			return valid
+			# BAKIR: You return valid (true/false) regardless of search method that is called which performs some action
+			# These three methods could be combined in a way: 1. enter place, perform search and return valid based on result of performed tap
+			# or leave that last part in rspec assert validation
 		end
 		def open_main_item(item_name)
 			main_item=find(item_name)
@@ -30,6 +34,7 @@ require 'appium_lib'
 
 		def nav_bar(input)
 			button=nil
+			# BAKIR: Preatraga - typo?
 			if(input=='Preatraga' || input=='Search')
 				button=find('Pretraga')
 			elsif(input=='Početak' || input=='Home')

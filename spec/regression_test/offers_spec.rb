@@ -10,6 +10,7 @@ describe "Navigator.ba regression test: Today's offers" do
 	end
 
 	context "Click the 'Danas aktuelno' item on the home viewscreen" do
+		# Bakir: where is do/end?
 		it 'item clicked, offers list viewscreen appeared'
 			expect(@homescreen.open_main_item('Danas aktuelno')).to be_truthy
 	end
