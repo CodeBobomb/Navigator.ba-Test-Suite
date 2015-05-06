@@ -2,12 +2,12 @@ require 'rubygems'
 require 'appium_lib'
 require 'singleton'
 
-require_relative './viewscreens/homescreen.rb'
-require_relative './viewscreens/placescreen.rb'
-require_relative './viewscreens/createscreen.rb'
-require_relative './viewscreens/listscreen.rb'
-require_relative './viewscreens/eventslistscreen.rb'
-require_relative './viewscreens/eventscreen.rb'
+require './lib/viewscreens/homescreen.rb'
+require './lib/viewscreens/placescreen.rb'
+require './lib/viewscreens/createscreen.rb'
+require './lib/viewscreens/listscreen.rb'
+require './lib/viewscreens/eventslistscreen.rb'
+require './lib/viewscreens/eventscreen.rb'
 class AppiumInit
 	include Singleton
 

@@ -1,16 +1,15 @@
-require 'appium_lib' 
+ class EventsListScreen
 
-class EventsListScreen
+	attr_accessor :time
+	attr_accessor :day
+	attr_accessor :month
+	attr_accessor :name
+	attr_accessor :theater
+	attr_accessor :genre
+	attr_accessor :price
 
-	# BAKIR: Use attr_accessors like in eventscreen class
 	def initialize
-		@time=nil
-		@day=nil
-		@month=nil
-		@name=nil
-		@theater=nil
-		@genre=nil
-		@price=nil
+
 	end
 
 	def select_offer(num)
@@ -22,7 +21,11 @@ class EventsListScreen
 		@theater=ids('com.atlantbh.navigator.debug:id/event_place_name')[num].text
 		@genre=ids('com.atlantbh.navigator.debug:id/event_type')[num].text
 		@price=ids('com.atlantbh.navigator.debug:id/event_price')[num].text
-		offer[num].click
+		offers[num].click
+	end
+
+	def get_event_info
+		[@name, @day, @month, @time, @theater, @genre, @price]
 	end
 
 	def matches_event?(name,day,month,time,theater,genre,price)

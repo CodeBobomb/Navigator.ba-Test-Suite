@@ -10,21 +10,20 @@ describe "Navigator.ba regression test: Theaters" do
 	
 	context "Click the 'Kina' item on the home viewscreen" do
 		it 'list viewcreen with theaters appeared' do
-			expect(@homescreen.open_main_item('Kina').to be_truthy
+			expect(@homescreen.open_main_item('Kina')).to eql('KINA')
 		end
 	end	
 
 	context "Select 'Ljetno kino HT Eronet' item in the list" do
 		it 'theater selected, place viewscreen appeared' do
-			# BAKIR: Why do you need do below?
-			@listscreen.open_item('Ljetno kino HT Eronet') do
+			@listscreen.open_item('Ljetno kino HT Eronet')
 			expect(@placescreen.required_details_exist?).to be_truthy
 		end
 	end
 
 	context "Press the Map button on options menu and check pin content" do
 		it "map viewscreen appeared and pin content verified" do
-			expect(@placescreen.check_map?).to be_truthy
+			expect(@placescreen.check_map).to match_array([true,true,true])
 		end
 	end
 

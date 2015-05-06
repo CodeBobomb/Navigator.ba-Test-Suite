@@ -1,16 +1,15 @@
-require 'appium_lib'
-
 class CreateScreen
 	
 	def add_name(name)
 		textbox=id('com.atlantbh.navigator.debug:id/cp_name')
 		textbox.type(name)
-		textbox.text == name
+		textbox.text
 	end
 
-	def address_screen
+	def open_address_screen
 		address=id('com.atlantbh.navigator.debug:id/cp_address')
 		address.click
+		id('com.atlantbh.navigator.debug:id/title').text
 	end
 
 	def set_address(street_value, number_value, city_value, zip_value)
@@ -27,33 +26,40 @@ class CreateScreen
 		zip.type(zip_value)
 
 		button=id('com.atlantbh.navigator.debug:id/cp_address_savebutton')
-
-		if street.text==street_value && number.text==number_value && city.text==city_value && zip.text==zip_value
-			return button.click 
+		values=[street.text==street_value, number.text==number_value, city.text==city_value, zip.text==zip_value] 
+		if button.click
+			values
 		else
 			return false
 		end
 	end
 
 	def select_primary_category(category,subcategory="")
+		categories=[]
 		category_list=tags('android.widget.TextView')
 		primary_category=category_list.select{ |cat| cat.text==category }[0]
+		categories << primary_category.text
 		primary_category.click
 		sleep(2)
 		subcategory_list=tags('android.widget.TextView')
 		if subcategory!=""
-			subcategory=subcategory_list.select { |cat| cat.text==subcategory}[0]
+			subcategory=subcategory_list.select { |cat| cat.text==subcategory }[0]
+			categories<<[subcategory.text]
 		else
-			subcategory=subcategory_list.select { |cat| cat.text==category}[0]
+			subcategory=subcategory_list.select { |cat| cat.text==category }[0]
 		end
 		subcategory.click
+		categories
 	end
 
-	def category_screen
+	def open_category_screen
 		category=id('com.atlantbh.navigator.debug:id/cp_cat_prim')
-		result=category.click
+		category.click
 		sleep(5)
-		result
+	end
+
+	def number_of_categories
+		tags('android.widget.TextView').length-1
 	end
 
 	def add_comment(comm)
@@ -63,9 +69,10 @@ class CreateScreen
 		comment.text == comm
 	end
 
-	def map_screen
+	def open_map_screen
 		map=id('com.atlantbh.navigator.debug:id/mapContainer')
 		map.click
+		id('com.atlantbh.navigator.debug:id/title').text
 	end	
 
 	def drag_pin

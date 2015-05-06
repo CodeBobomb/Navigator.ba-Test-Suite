@@ -1,6 +1,3 @@
-require 'appium_lib'
-
-
 class ListScreen
 	
 	def get_item(name)

@@ -1,6 +1,3 @@
-require 'appium_lib'
-
-
 describe 'Navigator.ba smoke test' do
 	before :all do
 		@homescreen=HomeScreen.new
@@ -9,7 +6,7 @@ describe 'Navigator.ba smoke test' do
 
 	context "Enter 'Sloga' in search box, select first result" do
 		it "place entered, place searched" do
-			expect(@homescreen.search_place('Sloga')).to be_truthy
+			expect(@homescreen.search_place('Sloga')).to be_eql('CINEMAS SLOGA CLUB')
 		end
 	end
 
@@ -21,19 +18,19 @@ describe 'Navigator.ba smoke test' do
 
  	context "Rate the place with 5 stars" do
 		it "place rated" do
-			expect(@placescreen.rate_place(5)).to be_truthy
+			expect(@placescreen.rate_place(5)).to eql(5)
 		end
 	end
 
 	context "Browse the gallery" do
 		it "gallery browsed" do
-			expect(@placescreen.browse_gallery).to be_truthy
+			expect(@placescreen.browse_gallery).to match_array([true,true])
 		end
 	end
 
 	context "Press the Map button on options menu and check pin content" do
 		it "map viewscreen appeared and content verified" do
-			expect(@placescreen.check_map?).to be_truthy
+			expect(@placescreen.check_map).to match_array([true,true,true])
 		end
 	end
 

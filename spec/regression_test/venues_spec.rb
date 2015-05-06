@@ -1,5 +1,3 @@
-require 'appium_lib'
-
 describe "Navigator.ba regression test: Venues" do
 
 	before :all do
@@ -10,7 +8,7 @@ describe "Navigator.ba regression test: Venues" do
 
 	context "Click the: 'Glavne lokacije' item on the homescreen" do
 		it "list viewscreen appeared" do
-			expect(@homescreen.open_main_item('Glavne lokacije')).to be_truthy
+			expect(@homescreen.open_main_item('Glavne lokacije')).to eql('GLAVNE LOKACIJE')
 		end
 	end
 
@@ -23,7 +21,7 @@ describe "Navigator.ba regression test: Venues" do
 
 	context "Press the Map button on options menu and check pin content" do
 		it "map viewscreen appeared and pin content verified" do
-			expect(@placescreen.check_map?).to be_truthy
+			expect(@placescreen.check_map).to match_array([true,true,true])
 		end
 	end
 

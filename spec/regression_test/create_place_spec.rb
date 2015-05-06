@@ -1,6 +1,3 @@
-require 'appium_lib'
-
-
 describe 'Navigator.ba regression test: Create place' do
 	
 	before :all do
@@ -11,37 +8,38 @@ describe 'Navigator.ba regression test: Create place' do
 
 	context 'Press the Create place button' do
 		it 'button pressed' do
-			expect(@homescreen.nav_bar('Kreiraj Objekat')).to be_truthy
+			expect(@homescreen.nav_bar('Kreiraj Objekat')).to be_eql('KREIRAJ OBJEKAT')
 		end
 	end
 
-	context "Enter place name: 'CKMD-2' " do
+	context "Enter place name: 'CKMD-3' " do
 		it 'place name entered' do
-			expect(@createscreen.add_name('CKMD-2')).to be_truthy
+			expect(@createscreen.add_name('CKMD-3')).to eql('CKMD-3')
 		end
 	end
 
 	context "Press the Address item" do
 		it "address screen appeared" do
-			expect(@createscreen.address_screen).to be_truthy
+			expect(@createscreen.open_address_screen).to be_eql('ADRESA')
 		end
 	end
 
 	context "Set street: 'Zmaja od Bosne', house number: '10', city: 'Sarajevo' and zip:'71000' as adress data" do
 		it "address data set" do
-			expect(@createscreen.set_address('Zmaj od Bosne','10','Sarajevo','71000')).to be_truthy
+			expect(@createscreen.set_address('Zmaj od Bosne','10','Sarajevo','71000')).to match_array([true,true,true,true])
 		end
 	end
 
 	context "Press the Primary category item" do
 		it "category screen appeared" do
-			expect(@createscreen.category_screen).to be_truthy
+			@createscreen.open_category_screen
+			expect(@createscreen.number_of_categories).to be > 0
 		end
 	end
 
 	context "Select 'Kafa' as primary category and no subcategory" do
 		it 'primary category selected' do
-			expect(@createscreen.select_primary_category('Kafa')).to be_truthy
+			expect(@createscreen.select_primary_category('Kafa')).to match_array(['Kafa'])
 		end
 	end
 
@@ -53,7 +51,7 @@ describe 'Navigator.ba regression test: Create place' do
 
 	context "Open the map screen" do
 		it 'map opened' do
-			expect(@createscreen.map_screen).to be_truthy
+			expect(@createscreen.open_map_screen).to eql('ODABERITE LOKACIJU')
 		end
 	end
 
@@ -76,9 +74,9 @@ describe 'Navigator.ba regression test: Create place' do
 		end		
 	end
 
-	context "Enter 'CKMD2' in search box, select first result" do
+	context "Enter 'CKMD3' in search box, select first result" do
 		it "place entered, place searched" do
-			expect(@homescreen.search_place('CKMD2')).to be_truthy
+			expect(@homescreen.search_place('CKMD3')).to be_eql('CKMD-3')
 		end
 	end
 
@@ -90,7 +88,7 @@ describe 'Navigator.ba regression test: Create place' do
 
 	context "Press the Map button on options menu and check pin content" do
 		it "map viewscreen appeared and content verified" do
-			expect(@placescreen.check_map?).to be_truthy
+			expect(@placescreen.check_map).to match_array([true,true,true])
 		end
 	end
 
