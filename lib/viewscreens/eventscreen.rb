@@ -38,7 +38,7 @@ class EventScreen
 		@email=id('com.atlantbh.navigator.debug:id/reservation_email')
 		@phone=id('com.atlantbh.navigator.debug:id/reservation_phone')
 		@notes=id('com.atlantbh.navigator.debug:id/reservation_note')
-		Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.8, end_x: 0.5, end_y: 0.2, duration: 1000).perform
+		Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.8, end_x: 0.5, end_y: 0.35, duration: 1000).perform
 		@num_of_tickets=id('com.atlantbh.navigator.debug:id/reservation_nmb')
 		@reserve_button=id('com.atlantbh.navigator.debug:id/reserve_ticket_button_submit')
 

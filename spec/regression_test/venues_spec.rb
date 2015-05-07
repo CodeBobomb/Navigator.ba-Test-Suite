@@ -1,4 +1,4 @@
-describe "Navigator.ba regression test: Venues" do
+describe "Navigator.ba mobile app regression test: Venues" do
 
 	before :all do
 		@homescreen = HomeScreen.new

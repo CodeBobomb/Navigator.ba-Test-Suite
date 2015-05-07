@@ -12,4 +12,13 @@ class ListScreen
 	def previous_screen
 		back
 	end
+
+	def swipe_up
+		Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.8, end_x: 0.5, end_y: 0.35, duration: 1000).perform
+	end
+
+	def swipe_down
+		Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.35, end_x: 0.5, end_y: 0.8, duration: 1000).perform
+	end
+
 end

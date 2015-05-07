@@ -1,5 +1,3 @@
-require 'appium_lib'
-
 describe "Navigator.ba regression test: Today's offers" do
 
 	before :all do

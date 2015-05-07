@@ -12,6 +12,10 @@ class HomeScreen
 		Appium::TouchAction.new.tap(x:loc[:x],y:loc[:y]).perform
 	end
 
+	def previous_screen
+		back
+	end
+
 	def search_place(place)
 		enter_place(place)
 		search
@@ -23,6 +27,32 @@ class HomeScreen
 		main_item=find(item_name)
 		main_item.click
 		id('com.atlantbh.navigator.debug:id/title').text
+	end
+
+	def get_all_categories
+		categories={}
+		current_length=-1
+		while categories.length!=current_length
+			current_length=categories.length
+			visible_categories=ids('com.atlantbh.navigator.debug:id/home_category_title')
+			visible_categories.each do |cat|
+				next if categories[cat.text]!=nil
+				cat.click  
+				title=id('com.atlantbh.navigator.debug:id/title').text
+				back#previous_screen
+				categories[cat.text]=title
+			end
+			swipe_up
+		end
+		categories
+	end
+
+	def swipe_up
+		Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.8, end_x: 0.5, end_y: 0.3, duration: 1000).perform
+	end
+
+	def swipe_down
+		Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.3, end_x: 0.5, end_y: 0.8, duration: 1000).perform
 	end
 
 	def nav_bar(input)

@@ -1,5 +1,3 @@
-require 'appium_lib'
-
 describe "Navigator.ba regression test: Theaters" do
 
 	before :all do
