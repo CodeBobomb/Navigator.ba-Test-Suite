@@ -12,7 +12,7 @@ class CreateScreen
 		id('com.atlantbh.navigator.debug:id/title').text
 	end
 
-	def set_address(street_value, number_value, city_value, zip_value)
+	def set_address(street_value="", number_value="", city_value="", zip_value="")
 		street=id('com.atlantbh.navigator.debug:id/cp_address_street_name')
 		street.type(street_value)
 
@@ -27,9 +27,11 @@ class CreateScreen
 
 		button=id('com.atlantbh.navigator.debug:id/cp_address_savebutton')
 		values=[street.text==street_value, number.text==number_value, city.text==city_value, zip.text==zip_value] 
-		if button.click
+		button.click
+		if !(exists{id('com.atlantbh.navigator.debug:id/cp_address_savebutton')})
 			values
 		else
+			previous_screen
 			return false
 		end
 	end
@@ -83,8 +85,16 @@ class CreateScreen
 	end
 
 	def save_button 
+		sleep(2)
+		Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.7, end_x: 0.5, end_y: 0.2, duration: 1000).perform
 		id('com.atlantbh.navigator.debug:id/create_place_button').click
 		sleep(3)
+		if (exists { id('com.atlantbh.navigator.debug:id/create_place_button') })
+			Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.2, end_x: 0.5, end_y: 0.7, duration: 1000).perform
+			return false
+		end
+		return true
+
 	end
 
 	def previous_screen

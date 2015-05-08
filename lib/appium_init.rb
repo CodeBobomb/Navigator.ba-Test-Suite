@@ -8,6 +8,7 @@ require './lib/viewscreens/createscreen.rb'
 require './lib/viewscreens/listscreen.rb'
 require './lib/viewscreens/eventslistscreen.rb'
 require './lib/viewscreens/eventscreen.rb'
+require './lib/viewscreens/changesscreen.rb'
 class AppiumInit
 	include Singleton
 
@@ -25,6 +26,7 @@ class AppiumInit
 		Appium.promote_appium_methods ListScreen
 		Appium.promote_appium_methods EventsListScreen
 		Appium.promote_appium_methods EventScreen
+		Appium.promote_appium_methods ChangesScreen
 	end
 
 	def initialize

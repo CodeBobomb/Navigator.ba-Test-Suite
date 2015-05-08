@@ -1,4 +1,5 @@
 class HomeScreen
+	attr_accessor :categories
 	def enter_place(place)
 		search_box=id('com.atlantbh.navigator.debug:id/search_input_custom')
 		search_box.type(place)
@@ -30,23 +31,26 @@ class HomeScreen
 	end
 
 	def get_all_categories
-		categories={}
+		@categories={}
 		current_length=-1
-		while categories.length!=current_length
-			current_length=categories.length
+		while @categories.length!=current_length
+			current_length=@categories.length
 			visible_categories=ids('com.atlantbh.navigator.debug:id/home_category_title')
 			visible_categories.each do |cat|
-				next if categories[cat.text]!=nil
+				next if @categories[cat.text]!=nil
 				cat.click  
+				if !(exist { id('com.atlantbh.navigator.debug:id/title') })
+					raise Exception 'Title not found' 
+				end
 				title=id('com.atlantbh.navigator.debug:id/title').text
-				back#previous_screen
-				categories[cat.text]=title
+				previous_screen
+				@categories[cat.text]=true
 			end
 			swipe_up
 		end
-		categories
+		@categories
 	end
-
+	
 	def swipe_up
 		Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.8, end_x: 0.5, end_y: 0.3, duration: 1000).perform
 	end

@@ -47,26 +47,35 @@ class PlaceScreen
 	end
 
 	def full_details_exist?
-		name=id('com.atlantbh.navigator.debug:id/profile_name').text 
-		image=id('com.atlantbh.navigator.debug:id/profile_image').text 
-		address=id('com.atlantbh.navigator.debug:id/profile_address').text 
-		phone=id('com.atlantbh.navigator.debug:id/profile_phone').text 
-		email=id('com.atlantbh.navigator.debug:id/profile_email').text 
-		rating=id('com.atlantbh.navigator.debug:id/profile_rating').text 
-		ratnum=id('com.atlantbh.navigator.debug:id/profile_ratingnum').text
-		worktime=id('com.atlantbh.navigator.debug:id/profile_working_hours').text
-		web=id('com.atlantbh.navigator.debug:id/profile_web').text
+		exists { id('com.atlantbh.navigator.debug:id/profile_name') } ? name=id('com.atlantbh.navigator.debug:id/profile_name').text : name=nil 
+		exists { id('com.atlantbh.navigator.debug:id/profile_image') } ? image=id('com.atlantbh.navigator.debug:id/profile_image') : image=nil
+		exists { id('com.atlantbh.navigator.debug:id/profile_address') } ? address=id('com.atlantbh.navigator.debug:id/profile_address') : address=nil
+		exists { id('com.atlantbh.navigator.debug:id/profile_phone') }  ? phone=id('com.atlantbh.navigator.debug:id/profile_phone') : phone=nil
+		exists { id('com.atlantbh.navigator.debug:id/profile_email') } ? email=id('com.atlantbh.navigator.debug:id/profile_email') : email=nil
+		exists { id('com.atlantbh.navigator.debug:id/profile_rating') } ? rating=id('com.atlantbh.navigator.debug:id/profile_rating') : rating=nil
+		exists { id('com.atlantbh.navigator.debug:id/profile_ratingnum') } ? ratnum=id('com.atlantbh.navigator.debug:id/profile_ratingnum') : ratnum=nil
+		exists { id('com.atlantbh.navigator.debug:id/profile_working_hours') } ? worktime=id('com.atlantbh.navigator.debug:id/profile_working_hours') : worktime=nil 
+		exists { id('com.atlantbh.navigator.debug:id/profile_web') } ? web=id('com.atlantbh.navigator.debug:id/profile_web') : web=nil
 		Appium::TouchAction.new.swipe(start_x: 100, start_y: 1100, end_x: 100, end_y: 170, duration: 1000).perform 
-		desc=id('com.atlantbh.navigator.debug:id/profile_description')
+		exists { id('com.atlantbh.navigator.debug:id/profile_description') } ? desc=id('com.atlantbh.navigator.debug:id/profile_description') : desc=nil
 		Appium::TouchAction.new.swipe(start_x: 100, start_y: 200, end_x: 100, end_y: 1100, duration: 1000).perform 
-			return !(name.nil? || image.nil? || address.nil? || phone.nil? || email.nil? || rating.nil? || ratnum.nil? || web.nil? || desc.nil?)
+		return !(name.nil? || image.nil? || address.nil? || phone.nil? || email.nil? || rating.nil? || ratnum.nil? || web.nil? || desc.nil?)
 	end
 
 	def required_details_exist?
-		name=id('com.atlantbh.navigator.debug:id/profile_name').text 
-		address=id('com.atlantbh.navigator.debug:id/profile_address').text 
-		rating=id('com.atlantbh.navigator.debug:id/profile_rating').text 
-		ratnum=id('com.atlantbh.navigator.debug:id/profile_ratingnum').text
+		exists { id('com.atlantbh.navigator.debug:id/profile_name') } ? name=id('com.atlantbh.navigator.debug:id/profile_name').text : name=nil 
+		exists { id('com.atlantbh.navigator.debug:id/profile_address') } ? address=id('com.atlantbh.navigator.debug:id/profile_address') : address=nil
+		exists { id('com.atlantbh.navigator.debug:id/profile_rating') } ? rating=id('com.atlantbh.navigator.debug:id/profile_rating') : rating=nil
+		exists { id('com.atlantbh.navigator.debug:id/profile_ratingnum') } ? ratnum=id('com.atlantbh.navigator.debug:id/profile_ratingnum') : ratnum=nil
 		return !(name.nil? || address.nil? || rating.nil? || ratnum.nil?)
+	end
+
+	def open_changes_screen 
+		while !(exists { id('com.atlantbh.navigator.debug:id/profile_button_edit') })
+			Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.8, end_x: 0.5, end_y: 0.25, duration: 1000).perform
+		end
+		changes_button=id('com.atlantbh.navigator.debug:id/profile_button_edit')
+		changes_button.click
+		id('com.atlantbh.navigator.debug:id/title').text
 	end
 end
