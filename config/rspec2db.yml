@@ -1,5 +1,5 @@
 options:
-  suite: "full regression" 
+  suite: "Navigator.ba regression suite" #this can be used in a setup where multiple projects share the same test results database 
   build: "0.0.1"
 dbconnection:
   adapter: postgresql
