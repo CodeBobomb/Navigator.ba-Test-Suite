@@ -1,6 +1,6 @@
 options:
   suite: "Navigator.ba regression suite" #this can be used in a setup where multiple projects share the same test results database 
-  build: "0.0.2"
+  build: "0.1.0"
 dbconnection:
   adapter: postgresql
   database:  rspec
