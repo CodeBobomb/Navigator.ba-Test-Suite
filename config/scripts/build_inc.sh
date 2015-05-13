@@ -2,6 +2,7 @@
 
 function build_inc {
 	a=$(sed -n '/build/p' config/rspec2db.yml)
+	echo $a
 	b=${a:9} 
 	b=${b//\"}
 	IFS="." read -a ver <<< "$b"
@@ -20,6 +21,8 @@ function build_inc {
 
 	s="  build: \"${ver[0]}.${ver[1]}.${ver[2]}\""
 	sed -i "s/.*build.*/$s/" config/rspec2db.yml
+	a=$(sed -n '/build/p' config/rspec2db.yml)
+	echo $a
 }
 
 
