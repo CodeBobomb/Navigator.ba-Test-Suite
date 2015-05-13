@@ -1,6 +1,6 @@
 options:
   suite: "default"
-  build: "0.0.1"
+  build: "0.0.0"
 dbconnection:
   adapter: postgresql
   database:  rspec
