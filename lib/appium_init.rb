@@ -10,7 +10,6 @@ require './lib/viewscreens/eventslistscreen.rb'
 require './lib/viewscreens/eventscreen.rb'
 require './lib/viewscreens/changesscreen.rb'
 class AppiumInit
-	include Singleton
 
 	def setup_driver
 		appium_text = File.join(Dir.pwd,'/config/appium.txt')
@@ -32,5 +31,6 @@ class AppiumInit
 	def initialize
 		setup_driver
 		promote_methods
+		sleep(10)
 	end
 end

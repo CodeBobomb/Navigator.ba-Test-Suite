@@ -20,6 +20,7 @@ class HomeScreen
 	def search_place(place)
 		enter_place(place)
 		search
+		sleep(2)
 		title=id('com.atlantbh.navigator.debug:id/title')
 		title.text
 	end
@@ -39,12 +40,13 @@ class HomeScreen
 			visible_categories.each do |cat|
 				next if @categories[cat.text]!=nil
 				cat.click  
-				if !(exist { id('com.atlantbh.navigator.debug:id/title') })
+				if !(exists { id('com.atlantbh.navigator.debug:id/title') })
 					raise Exception 'Title not found' 
 				end
 				title=id('com.atlantbh.navigator.debug:id/title').text
 				previous_screen
-				@categories[cat.text]=true
+				@categories[cat.text]=title
+
 			end
 			swipe_up
 		end
