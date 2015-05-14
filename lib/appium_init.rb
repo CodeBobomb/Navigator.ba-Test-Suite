@@ -31,6 +31,6 @@ class AppiumInit
 	def initialize
 		setup_driver
 		promote_methods
-		sleep(10)
+		sleep 5
 	end
 end

@@ -6,7 +6,7 @@ class ListScreen
 
 
 	def open_item(name)
-		get_item(name).click
+		wait { get_item(name).click }
 	end
 	
 	def previous_screen

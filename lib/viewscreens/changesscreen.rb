@@ -44,7 +44,7 @@ class ChangesScreen
 			name_box.send_keys(name)
 			submit_button.click
 			sleep(3)
-			Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.2, end_x: 0.5, end_y: 0.8, duration: 1000).perform 
+			Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.2, end_x: 0.5, end_y: 0.9, duration: 1000).perform 
 			return nil
 		end
 	end
@@ -64,7 +64,7 @@ class ChangesScreen
 			return_to_placescreen
 			return title
 		else
-			return nil
+			return false
 		end
 	end
 
@@ -110,7 +110,7 @@ class ChangesScreen
 		sec_cat=id('com.atlantbh.navigator.debug:id/cp_cat_sec')
 		comment_box=id('com.atlantbh.navigator.debug:id/cp_comment')
 		submit_button=id('com.atlantbh.navigator.debug:id/cp_address_savebutton')
-		
+=begin		
 		prim_cat.click
 		sleep(5)
 		prim_list=tags('android.widget.TextView').length > 1
@@ -120,10 +120,10 @@ class ChangesScreen
 		sleep(5)
 		sec_list=tags('android.widget.TextView').length > 1
 		previous_screen
-		
-		title=id('com.atlantbh.navigator.debug:id/title').text
+=end		
+		title=id('com.atlantbh.navigator.debug:id/title').text 
 		previous_screen
-		if prim_list && sec_list && !(comment_box.nil? || submit_button.nil?)
+		if prim_cat && sec_cat && !(comment_box.nil? || submit_button.nil?)
 			return title
 		else
 			return nil
@@ -191,7 +191,6 @@ class ChangesScreen
 		submit_button.click
 		if exists{ id('com.atlantbh.navigator.debug:id/cp_address_savebutton') }
 			previous_screen
-			return_to_placescreen(1)
 			return title
 		else
 			return false

@@ -51,6 +51,7 @@ describe 'Navigator.ba regression test: Suggest changes with invalid values' do
 
 	context "Return to home viewscreen" do
 		it 'returned to home viewscreen' do
+			@changesscreen.return_to_placescreen(1)
 			@placescreen.previous_screen
 			expect(@homescreen.on_screen?).to be_truthy
 		end
