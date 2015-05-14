@@ -8,7 +8,7 @@ class HomeScreen
 	end
 
 	def search
-		venues=find('GLAVNE LOKACIJE') 
+		venues=find('VENUES') 
 		loc=venues.location #suggested results is on the same location as "Glavne lokacije" item
 		Appium::TouchAction.new.tap(x:loc[:x],y:loc[:y]).perform
 	end
@@ -28,6 +28,7 @@ class HomeScreen
 	def open_main_item(item_name)
 		main_item=find(item_name)
 		main_item.click
+		sleep(3)
 		id('com.atlantbh.navigator.debug:id/title').text
 	end
 
@@ -62,22 +63,18 @@ class HomeScreen
 	end
 
 	def nav_bar(input)
-		button=nil
-		if(input=='Pretraga' || input=='Search')
-			button=find('Pretraga')
-		elsif(input=='Početak' || input=='Home')
-			button=find('Home')
-		elsif(input=='Postavke' || input=='Settings')
-			button=find('Postavke')
-		elsif(input=='Kreiraj Objekat' || input=='Create place')
-			button=find('Kreiraj Objekat')
-		end
+		button=find(input)
+		raise ArgumentError if button.nil?
 		button.click
 		id('com.atlantbh.navigator.debug:id/title').text
 	end
 
-	def on_screen?
+	def on_screen_bos?
 		!(find('Početak').nil? || find('Pretraga').nil? || find('Kreiraj Objekat').nil? || find('Postavke').nil? || id('com.atlantbh.navigator.debug:id/search_input_custom').nil?)
+	end
+
+	def on_screen?
+		!(find('Home').nil? || find('Search').nil? || find('Create Place').nil? || find('Settings').nil? || id('com.atlantbh.navigator.debug:id/search_input_custom').nil?)
 	end
 end
 

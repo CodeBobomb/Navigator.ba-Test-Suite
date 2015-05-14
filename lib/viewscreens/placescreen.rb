@@ -17,8 +17,7 @@ class PlaceScreen
 		exists { id('com.atlantbh.navigator.debug:id/profile_name') } ?  name=id('com.atlantbh.navigator.debug:id/profile_name').text : name=nil 
 		exists { id('com.atlantbh.navigator.debug:id/profile_address') } ? address=id('com.atlantbh.navigator.debug:id/profile_address').text : address=nil
 		exists { id('com.atlantbh.navigator.debug:id/profile_phone') } ? phone=id('com.atlantbh.navigator.debug:id/profile_phone').text : phone=nil
-		text('Mapa').click
-
+		text('Map').click
 		exists { id('com.atlantbh.navigator.debug:id/bubble_title') } ? bubble_title=id('com.atlantbh.navigator.debug:id/bubble_title').text : bubble_title=nil
 		exists { id('com.atlantbh.navigator.debug:id/bubble_description') } ? bubble_address=id('com.atlantbh.navigator.debug:id/bubble_description').text : bubble_address=nil
 		exists { id('com.atlantbh.navigator.debug:id/bubble_phone') } ? bubble_phone=id('com.atlantbh.navigator.debug:id/bubble_phone').text : bubble_phone=nil
@@ -56,9 +55,9 @@ class PlaceScreen
 		exists { id('com.atlantbh.navigator.debug:id/profile_ratingnum') } ? ratnum=id('com.atlantbh.navigator.debug:id/profile_ratingnum') : ratnum=nil
 		exists { id('com.atlantbh.navigator.debug:id/profile_working_hours') } ? worktime=id('com.atlantbh.navigator.debug:id/profile_working_hours') : worktime=nil 
 		exists { id('com.atlantbh.navigator.debug:id/profile_web') } ? web=id('com.atlantbh.navigator.debug:id/profile_web') : web=nil
-		Appium::TouchAction.new.swipe(start_x: 100, start_y: 1100, end_x: 100, end_y: 170, duration: 1000).perform 
+		Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.8, end_x: 0.5, end_y: 0.2, duration: 1000).perform 
 		exists { id('com.atlantbh.navigator.debug:id/profile_description') } ? desc=id('com.atlantbh.navigator.debug:id/profile_description') : desc=nil
-		Appium::TouchAction.new.swipe(start_x: 100, start_y: 200, end_x: 100, end_y: 1100, duration: 1000).perform 
+		Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.2, end_x: 0.5, end_y: 0.8, duration: 1000).perform 
 		return !(name.nil? || image.nil? || address.nil? || phone.nil? || email.nil? || rating.nil? || ratnum.nil? || web.nil? || desc.nil?)
 	end
 

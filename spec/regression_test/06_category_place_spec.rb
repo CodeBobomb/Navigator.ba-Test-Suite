@@ -8,7 +8,7 @@ describe "Navigator.ba mobile app regression test: Category list place browsing"
 
 	context "Click the 'Hrana' item in the cateogry list" do
 		it 'category item clicked, list viewscreen with food places appeared' do
-			expect(@homescreen.open_main_item('HRANA')).to eql('HRANA')
+			expect(@homescreen.open_main_item('FOOD')).to eql('FOOD')
 		end
 	end
 

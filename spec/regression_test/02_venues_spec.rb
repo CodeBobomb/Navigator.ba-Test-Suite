@@ -8,7 +8,7 @@ describe "Navigator.ba mobile app regression test: Venues" do
 
 	context "Click the: 'Glavne lokacije' item on the homescreen" do
 		it "list viewscreen appeared" do
-			expect(@homescreen.open_main_item('Glavne lokacije')).to eql('GLAVNE LOKACIJE')
+			expect(@homescreen.open_main_item('Glavne lokacije')).to eql('VENUES')
 		end
 	end
 

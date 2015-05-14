@@ -15,37 +15,37 @@ describe 'Navigator.ba regression test: Suggest changes with invalid values' do
 
 	context "Click the 'Suggest Changes' button" do
 		it 'changes screen opened' do
-			expect(@placescreen.open_changes_screen).to eql('PREDLOŽI IZMJENE')
+			expect(@placescreen.open_changes_screen).to eql('SUGGEST CHANGES')
 		end
 	end
 
 	context "Open the name change screen and change name to '123!~!dAta!~!123'" do
 		it 'error popup appeared, stayed on name change screen, returned to place viewscreen' do
-			expect(@changesscreen.try_name_change('123!~!dAta!~!123')).to eql('NAZIV')
+			expect(@changesscreen.try_name_change('123!~!dAta!~!123')).to eql('NAME')
 		end
 	end
 
 	context "Click the 'Suggest Changes' button" do
 		it 'changes screen opened' do
-			expect(@placescreen.open_changes_screen).to eql('PREDLOŽI IZMJENE')
+			expect(@placescreen.open_changes_screen).to eql('SUGGEST CHANGES')
 		end
 	end
 
 	context "Open the address change screen and change address to: '321!~!dAta!~!123', '123!~!dAta!~!123', '123!~!dAta!~!123','0123456789' " do
  		it 'error popup appeared,stayed on address change screen, returned to place viewscreen' do
- 			expect(@changesscreen.try_address_change('321!~!dAta!~!123','123!~!dAta!~!123','123!~!dAta!~!123','0123456789','123!~!dAta!~!123')).to eql('ADRESA')
+ 			expect(@changesscreen.try_address_change('321!~!dAta!~!123','123!~!dAta!~!123','123!~!dAta!~!123','0123456789','123!~!dAta!~!123')).to eql('ADDRESS')
  		end
  	end
 
  	context "Click the 'Suggest Changes' button" do
 		it 'changes screen opened' do
-			expect(@placescreen.open_changes_screen).to eql('PREDLOŽI IZMJENE')
+			expect(@placescreen.open_changes_screen).to eql('SUGGEST CHANGES')
 		end
 	end
 
 	context "Open the contact change screen, and change contact details to: '123!~!dAta!~!123', '123!~!dAta!~!123',123456789,'123!~!dAta!~!123'" do
 		it 'error popup appeared, stayed on contact changed screen, returned to place viewscreen' do
-			expect(@changesscreen.try_contact_change('123!~!dAta!~!123','123!~!dAta!~!123','123456789','123!~!dAta!~!123')).to eql('KONTAKT INFO')
+			expect(@changesscreen.try_contact_change('123!~!dAta!~!123','123!~!dAta!~!123','123456789','123!~!dAta!~!123')).to eql('CONTACT DETAILS')
 		end
 	end
 

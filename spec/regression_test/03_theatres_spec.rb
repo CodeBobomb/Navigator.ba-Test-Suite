@@ -8,7 +8,7 @@ describe "Navigator.ba regression test: Theaters" do
 	
 	context "Click the 'Kina' item on the home viewscreen" do
 		it 'list viewcreen with theaters appeared' do
-			expect(@homescreen.open_main_item('Kina')).to eql('KINA')
+			expect(@homescreen.open_main_item('Theatres')).to eql('THEATRES')
 		end
 	end	
 

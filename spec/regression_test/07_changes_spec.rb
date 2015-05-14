@@ -15,7 +15,7 @@ describe "Navigator.ba mobile app regression test: Suggest changes" do
 
 	context "Click the 'Suggest Changes' button" do
 		it 'changes screen opened' do
-			expect(@placescreen.open_changes_screen).to eql('PREDLOŽI IZMJENE')
+			expect(@placescreen.open_changes_screen).to eql('SUGGEST CHANGES')
 		end
 	end
 
@@ -27,37 +27,37 @@ describe "Navigator.ba mobile app regression test: Suggest changes" do
 
 	context "Open the name screen" do
 		it 'name screen opened' do
-			expect(@changesscreen.open_name_screen).to eql('NAZIV')
+			expect(@changesscreen.open_name_screen).to eql('NAME')
 		end
  	end
 
  	context "Open the category screen" do
  		it 'category screen opened' do
- 			expect(@changesscreen.open_category_screen).to eql('KATEGORIJA')
+ 			expect(@changesscreen.open_category_screen).to eql('CATEGORY')
  		end
  	end
 
  	context "Open the address screen" do
  		it 'address screen opened' do
- 			expect(@changesscreen.open_address_sceen).to eql('ADRESA')
+ 			expect(@changesscreen.open_address_sceen).to eql('ADDRESS')
  		end
  	end
 
  	context "Open the contact screen" do
  		it 'contact screen opened' do
- 			expect(@changesscreen.open_contact_screen).to eql('KONTAKT INFO')
+ 			expect(@changesscreen.open_contact_screen).to eql('CONTACT DETAILS')
  		end
  	end
 
  	context "Open the map screen" do
  		it 'map sceen opened' do
- 			expect(@changesscreen.open_map_screen).to eql('LOKACIJA')
+ 			expect(@changesscreen.open_map_screen).to eql('LOCATION')
  		end
  	end
 
  	context "Open the comment sceen" do
  		it 'comment screen opened' do
- 			expect(@changesscreen.open_comment_screen).to eql('DRUGE IZMJENE')
+ 			expect(@changesscreen.open_comment_screen).to eql('OTHER CHANGES')
  		end
  	end
 
@@ -69,7 +69,7 @@ describe "Navigator.ba mobile app regression test: Suggest changes" do
 
  	context "Click the 'Suggest Changes' button" do
 		it 'changes screen opened' do
-			expect(@placescreen.open_changes_screen).to eql('PREDLOŽI IZMJENE')
+			expect(@placescreen.open_changes_screen).to eql('SUGGEST CHANGES')
 		end
 	end
 

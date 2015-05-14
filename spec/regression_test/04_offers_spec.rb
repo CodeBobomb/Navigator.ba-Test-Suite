@@ -9,7 +9,7 @@ describe "Navigator.ba regression test: Today's offers" do
 
 	context "Click the 'Danas aktuelno' item on the home viewscreen" do
 		it 'item clicked, offers list viewscreen appeared' do
-			expect(@homescreen.open_main_item('Danas aktuelno')).to eql('DANAS AKTUELNO')
+			expect(@homescreen.open_main_item("Today's offer")).to eql("TODAY'S OFFER")
 		end
 	end
 
@@ -53,7 +53,7 @@ describe "Navigator.ba regression test: Today's offers" do
 
 	context "Reserve a ticket with data 'John','Testcase','adnan.praksa@gmail.com', '061508633', 2 tickets, 'No notes' " do
 		it 'Tickets successfully reserved' do
-			expect(@eventscreen.reserve_tickets('John','Testcase','adnan.praksa@gmail.com','061508633','No notes',2)).to eql('Vaša rezervacija je proslijeđena osoblju objekta.')
+			expect(@eventscreen.reserve_tickets('John','Testcase','adnan.praksa@gmail.com','061508633','No notes',2)).to eql('Your reservation has been sent to place staff.')
 		end
 	end
 

@@ -44,7 +44,7 @@ class ChangesScreen
 			name_box.send_keys(name)
 			submit_button.click
 			sleep(3)
-			Appium::TouchAction.new.swipe(start_x: 100, start_y: 200, end_x: 100, end_y: 1100, duration: 1000).perform 
+			Appium::TouchAction.new.swipe(start_x: 0.5, start_y: 0.2, end_x: 0.5, end_y: 0.8, duration: 1000).perform 
 			return nil
 		end
 	end

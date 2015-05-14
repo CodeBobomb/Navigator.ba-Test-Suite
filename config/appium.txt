@@ -2,8 +2,7 @@
 platformName = "android"
 app = "./config/navigator.apk"
 deviceName = "Android"
-avd = "appium_test"
-appActivity = "com.atlantbh.navigator.HomeActivity"
+appWaitActivity = "com.atlantbh.navigator.HomeActivity"
 
 [appium_lib]
 debug = true

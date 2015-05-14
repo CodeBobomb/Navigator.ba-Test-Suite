@@ -8,7 +8,7 @@ describe 'Navigator.ba regression test: Create place with invalid values' do
 
 	context 'Press the Create place button' do
 		it 'button pressed' do
-			expect(@homescreen.nav_bar('Kreiraj Objekat')).to be_eql('KREIRAJ OBJEKAT')
+			expect(@homescreen.nav_bar('CREATE PLACE')).to be_eql('CREATE PLACE')
 		end
 	end
 
@@ -34,7 +34,7 @@ describe 'Navigator.ba regression test: Create place with invalid values' do
 
 	context "Press the Address item" do
 		it "address screen appeared" do
-			expect(@createscreen.open_address_screen).to be_eql('ADRESA')
+			expect(@createscreen.open_address_screen).to be_eql('ADDRESS')
 		end
 	end
 
@@ -60,7 +60,7 @@ describe 'Navigator.ba regression test: Create place with invalid values' do
 
 	context "Select 'Kafa' as primary category and no subcategory" do
 		it 'primary category selected' do
-			expect(@createscreen.select_primary_category('Kafa')).to match_array(['Kafa'])
+			expect(@createscreen.select_primary_category('Coffee')).to match_array(['Coffee'])
 		end
 	end
 
@@ -73,7 +73,7 @@ describe 'Navigator.ba regression test: Create place with invalid values' do
 
 	context "Open the map screen" do
 		it 'map opened' do
-			expect(@createscreen.open_map_screen).to eql('ODABERITE LOKACIJU')
+			expect(@createscreen.open_map_screen).to eql('SELECT LOCATION')
 		end
 	end
 
