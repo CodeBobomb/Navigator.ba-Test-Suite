@@ -33,22 +33,24 @@ class HomeScreen
 	end
 
 	def get_all_categories(expected_length)
-		@categories={}
+		@categories=Hash.new("no_element")
 		iterator=0
-		while @categories.length<expected_length
+		while @categories.length<expected_length || iterator>12
 			visible_categories=ids('com.atlantbh.navigator.debug:id/home_category_title')
+
 			visible_categories.each do |cat|
-				next if @categories[cat.text]!=nil
-				cat.click  
-				if !(exists { id('com.atlantbh.navigator.debug:id/title') }) || iterator>50
-					raise Exception 'Title not found' 
+				if @categories[cat.text]=="no_element" 
+					cat.click  
+					if !(exists { id('com.atlantbh.navigator.debug:id/title') }) || iterator>50
+						raise Exception 'Title not found' 
+					end
+					title=id('com.atlantbh.navigator.debug:id/title').text
+					previous_screen
+					@categories[cat.text]=title
 				end
-				title=id('com.atlantbh.navigator.debug:id/title').text
-				previous_screen
-				@categories[cat.text]=title
-				iterator+=1
-				end
+			end
 			swipe_up
+			iterator+=1
 		end
 		@categories
 	end
