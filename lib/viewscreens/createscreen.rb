@@ -24,9 +24,8 @@ class CreateScreen
 
 		zip=id('com.atlantbh.navigator.debug:id/cp_address_zip')
 		zip.type(zip_value)
-
-		button=id('com.atlantbh.navigator.debug:id/cp_address_savebutton')
 		values=[street.text==street_value, number.text==number_value, city.text==city_value, zip.text==zip_value] 
+		button=id('com.atlantbh.navigator.debug:id/cp_address_savebutton')		
 		button.click
 		if !(exists{id('com.atlantbh.navigator.debug:id/cp_address_savebutton')})
 			values
