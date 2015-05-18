@@ -32,23 +32,22 @@ class HomeScreen
 		id('com.atlantbh.navigator.debug:id/title').text
 	end
 
-	def get_all_categories
+	def get_all_categories(expected_length)
 		@categories={}
-		current_length=-1
-		while @categories.length!=current_length
-			current_length=@categories.length
+		iterator=0
+		while @categories.length<expected_length
 			visible_categories=ids('com.atlantbh.navigator.debug:id/home_category_title')
 			visible_categories.each do |cat|
 				next if @categories[cat.text]!=nil
 				cat.click  
-				if !(exists { id('com.atlantbh.navigator.debug:id/title') })
+				if !(exists { id('com.atlantbh.navigator.debug:id/title') }) || iterator>50
 					raise Exception 'Title not found' 
 				end
 				title=id('com.atlantbh.navigator.debug:id/title').text
 				previous_screen
 				@categories[cat.text]=title
-
-			end
+				iterator+=1
+				end
 			swipe_up
 		end
 		@categories

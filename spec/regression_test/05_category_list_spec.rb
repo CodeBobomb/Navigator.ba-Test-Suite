@@ -9,7 +9,7 @@ describe "Naviagtor.ba mobile app regression test: Category list " do
 
 	context "Check if every category item opens a list viewscreen" do
 		it 'all category items opened a list viewscreen' do
-			@homescreen.get_all_categories #hash with category items as keys and category list title as values
+			@homescreen.get_all_categories(12) #hash with category items as keys and category list title as values
 			expect(@homescreen.categories.keys).to match_array(@homescreen.categories.values)
 		end
 	end
