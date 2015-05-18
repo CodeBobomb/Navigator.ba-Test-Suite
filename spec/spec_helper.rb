@@ -29,6 +29,7 @@ RSpec.configure do |config|
 
   config.after(:all) do
     driver_quit
+    sleep 2
   end
   
  # config.expect_with :rspec do |expectations|
