@@ -26,7 +26,7 @@ describe 'Navigator.ba regression test: Create place' do
 
 	context "Set street: 'Zmaja od Bosne', house number: '10', city: 'Sarajevo' and zip:'71000' as adress data" do
 		it "address data set" do
-			expect(@createscreen.set_address('Zmaj od Bosne','10','Sarajevo','71000')).to match_array([true,true,true,true])
+			expect(@createscreen.set_address('Zmaja od Bosne','10','Sarajevo','71000')).to match_array([true,true,true,true])
 		end
 	end
 
