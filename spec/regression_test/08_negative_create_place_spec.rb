@@ -64,13 +64,6 @@ describe 'Navigator.ba regression test: Create place with invalid values' do
 		end
 	end
 
-	context "Press the Create place button" do
-		it 'error popup message appeared, stayed on create viewscreen' do
-			@createscreen.save_button
-			expect(@placescreen.required_details_exist?).to be_falsey
-		end
-	end
-
 	context "Open the map screen" do
 		it 'map opened' do
 			expect(@createscreen.open_map_screen).to eql('SELECT LOCATION')
