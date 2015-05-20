@@ -191,6 +191,8 @@ class ChangesScreen
 		submit_button.click
 		if exists{ id('com.atlantbh.navigator.debug:id/cp_address_savebutton') }
 			previous_screen
+			previous_screen
+			sleep 1
 			return title
 		else
 			return false
