@@ -1,3 +1,4 @@
+#test
 describe 'Navigator.ba smoke test' do
 	before :all do
 		@homescreen=HomeScreen.new
